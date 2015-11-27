@@ -1,10 +1,14 @@
 <template name="s1">
-  <video autoplay loop muted>
-    <source src="/static.mp4" type="video/mp4" />
-  </video>
-  {{voice}}
+  <div class="hidden">
+    {{voice}}
+  </div>
+  {{#if stateIs "STATIC"}}
+    <video autoplay loop muted>
+      <source src="/static.mp4" type="video/mp4" />
+    </video>
+  {{/if}}
   {{#if stateIs "CRASH"}}
-    <audio controls="controls">
+    <audio autoplay>
       <source src="/crash.mp3" type="audio/mp3">
     </audio>
   {{/if}}
