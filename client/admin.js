@@ -1,3 +1,9 @@
+Template.registerHelper('stateIs', function (s) {
+  var state = State.findOne();
+  if (!state) return false;
+  return state.state == s;
+});
+
 Template.admin.helpers({
   state: function () {
     var state = State.findOne();
