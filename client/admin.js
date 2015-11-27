@@ -37,6 +37,9 @@ Template.admin.events({
   'click [data-role="alarm"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'ALARM'}});
   },
+  'click [data-role="reboot"]': function(e, tmpl) {
+    State.update(1, {$set: {state: 'REBOOT'}});
+  },
   'click [data-role="static"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'STATIC'}});
   },
