@@ -1,9 +1,18 @@
+Template.admin.helpers({
+  state: function () {
+    var state = State.findOne();
+    if (state) {
+      return state.state;
+    }
+  }
+});
+
 Template.admin.events({
   'click .alarm': function(e, tmpl) {
-    console.log('alarm');
+    State.update(1, {$set: {state: 'ALARM'}});
   },
   'click .static': function(e, tmpl) {
-    console.log('static');
+    State.update(1, {$set: {state: 'STATIC'}});
   },
   'submit form': function (e, tmpl) {
     e.preventDefault();
