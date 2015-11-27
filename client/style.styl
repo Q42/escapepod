@@ -20,16 +20,32 @@ video {
   background-color: black;
   color: green;
   width: 100vw;
-  height: 75vw;
+  height: 100vh;
   font-family: monospace;
   font-size: 20px;
 
   .uitleg {
+    padding: 20px
     width: 50%;
   }
 
-  input {
-    width: 10em;
+  input[type=text] {
+    width: 80vw;
+    background-color: black;
+    border: none;
+    color: green;
+    cursor: text;
+    margin-left: 10px;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+  .prompt::before {
+    margin-left: 20px;
+    content: "$";
+    color: green;
   }
 
 }
