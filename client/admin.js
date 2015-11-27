@@ -22,6 +22,9 @@ Template.admin.events({
   'click [data-role="intro2"]': function(e, tmpl) {
     VoiceMsgs.insert({msg: 'So sign up today and be among the first to experience the stars.', ts: new Date()});
   },
+  'click [data-role="crash"]': function(e, tmpl) {
+    State.update(1, {$set: {state: 'CRASH'}});
+  },
   'click [data-role="alarm"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'ALARM'}});
   },
