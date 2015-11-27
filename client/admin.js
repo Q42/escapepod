@@ -12,8 +12,8 @@ Template.admin.events({
     u.pitch = 1;
     u.volume = 1;
     //u.voice = voices.filter(function(voice) { return voice.name == 'Fred'; })[0];
-    //u.voice = voices.filter(function(voice) { return voice.name == 'Bubbles'; })[0];
-    u.voice = voices.filter(function(voice) { return voice.name == 'Good News'; })[0];
+    u.voice = voices.filter(function(voice) { return voice.name == 'Bubbles'; })[0];
+    //u.voice = voices.filter(function(voice) { return voice.name == 'Good News'; })[0];
     speechSynthesis.speak(u);
   }
 });
