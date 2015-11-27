@@ -3,4 +3,9 @@
     <source src="/static.mp4" type="video/mp4" />
   </video>
   {{voice}}
+  {{#if stateIs "CRASH"}}
+    <audio controls="controls">
+      <source src="/crash.mp3" type="audio/mp3">
+    </audio>
+  {{/if}}
 </template>

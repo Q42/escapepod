@@ -2,16 +2,21 @@
   <div class="admin">
     <h1>Admin</h1>
     <h2>Intro</h2>
-    TODO buttons to start the intro
+
+    <button data-role="intro1">Intro 1</button>
+    <button data-role="intro2">Intro 2</button>
+
 
     <section>
       Current state: {{state}}
-      
       <div>
         Set state:
-        <button class="alarm">Alarm</button>
-        <button class="static">Static</button>
+        <button data-role="crash">Crash</button>
+        <button data-role="alarm">Alarm</button>
+        <button data-role="static">Static</button>
+        <button data-role="puzzel3">Puzzel 3</button>
       </div>
+      Robot arm: {{robotArm}}
     </section>
 
     <form>
@@ -20,6 +25,10 @@
     </form>
     <section>
       {{> lampen}}
+    </section>
+
+    <section>
+      <button data-role="reset">Reset</button>
     </section>
   </div>
 </template>
