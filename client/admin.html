@@ -1,8 +1,21 @@
 <template name="admin">
-  <h1>Admin</h1>
-  <form>
-    <input type="text">
-    <input type="submit" value="Say this">
-  </form>
-  {{> lampen}}
+  <div class="admin">
+    <h1>Admin</h1>
+    <h2>Intro</h2>
+    TODO buttons to start the intro
+
+    <section>
+      Set state:
+      <button class="alarm">Alarm</button>
+      <button class="static">Static</button>
+    </section>
+
+    <form>
+      <input type="text">
+      <input type="submit" value="Say this">
+    </form>
+    <section>
+      {{> lampen}}
+    </section>
+  </div>
 </template>

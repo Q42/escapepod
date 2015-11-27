@@ -7,3 +7,10 @@ video {
   width: 100vw;
   height: 100vh;
 }
+
+.admin {
+  margin: 10px;
+}
+section {
+  margin: 40px 0;
+}
