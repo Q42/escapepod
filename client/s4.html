@@ -1,5 +1,15 @@
 <template name="s4">
-  <video autoplay loop muted>
-    <source src="https://dl.dropboxusercontent.com/u/2242264/space.mp4" type="video/mp4" />
-  </video>
+  {{#if stateIs "INTRO"}}
+    <!-- TODO show video of stars flashing by -->
+    <video autoplay loop muted>
+      <source src="https://dl.dropboxusercontent.com/u/2242264/space.mp4" type="video/mp4" />
+    </video>
+    <audio autoplay>
+      <source src="/crash.mp3" type="audio/mp3">
+    </audio>
+  {{/if}}
+  {{#if stateIs "TODO"}}
+    TODO style this and put it in the right state
+    <img src="/blueplanet.jpg">
+  {{/if}}
 </template>

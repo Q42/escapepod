@@ -1,4 +1,9 @@
 <template name="s2">
+  {{#if stateIs "INTRO"}}
+    <div>
+      TODO show empty terminal
+    </div>
+  {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>
       <source src="/static.mp4" type="video/mp4" />
