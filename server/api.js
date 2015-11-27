@@ -6,7 +6,7 @@ var Api = new Restivus({
 // Maps to: /api/robotarm
 Api.addRoute('robotarm', {authRequired: false}, {
   get: function () {
-    // TODO set some internal state
+    State.update(1, {$set: {robotArm: true}});
     return {message: '42'};
   }
 });

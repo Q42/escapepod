@@ -5,11 +5,13 @@ Template.registerHelper('stateIs', function (s) {
 });
 
 Template.admin.helpers({
-  state: function () {
+  state: function() {
     var state = State.findOne();
-    if (state) {
-      return state.state;
-    }
+    if (state) return state.state;
+  },
+  robotArm: function() {
+    var state = State.findOne();
+    if (state) return ''+state.robotArm;
   }
 });
 
@@ -33,5 +35,11 @@ Template.admin.events({
     e.preventDefault();
     var msg = e.target.querySelector('input').value;
     VoiceMsgs.insert({msg: msg, ts: new Date()});
+  },
+  'click [data-role="reset"]': function(e, tmpl) {
+    State.update(1, {$set: {
+      state: 'INTRO',
+      robotArm: false
+    }});
   }
 });
