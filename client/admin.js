@@ -38,13 +38,17 @@ Template.admin.events({
     }, 37000);
     Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'REBOOT'}});
+      VoiceMsgs.insert({msg: 'Escape pod has been succesfully dispatched. Please wait for main system to reboot.', ts: new Date()});
     }, 52000);
-  },
-  'click [data-role="crash"]': function(e, tmpl) {
-    State.update(1, {$set: {state: 'CRASH'}});
-  },
-  'click [data-role="alarm"]': function(e, tmpl) {
-    State.update(1, {$set: {state: 'ALARM'}});
+    Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Checking all systems.', ts: new Date()});
+    }, 62000);
+    Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Checking all life support.', ts: new Date()});
+    }, 65000);
+    Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Oxygen breach detected. Current oxygen level: 69%. If you do not wish to suffer a horrible death by suffocation, please repair breach immediately.', ts: new Date()});
+    }, 70000);
   },
   'click [data-role="reboot"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'REBOOT'}});
