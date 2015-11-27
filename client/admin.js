@@ -14,13 +14,13 @@ Template.admin.helpers({
 });
 
 Template.admin.events({
-  'click .alarm': function(e, tmpl) {
+  'click [data-role="alarm"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'ALARM'}});
   },
-  'click .static': function(e, tmpl) {
+  'click [data-role="static"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'STATIC'}});
   },
-  'click .puzzel3': function(e, tmpl) {
+  'click [data-role="puzzel3"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'PUZZEL3'}});
   },
   'submit form': function (e, tmpl) {
