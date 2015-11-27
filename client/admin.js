@@ -1,7 +1,7 @@
 Template.registerHelper('stateIs', function (s) {
   var state = State.findOne();
   if (!state) return false;
-  return state.state == s;
+  return _.contains(s.split('|'), state.state);
 });
 
 Template.admin.helpers({
@@ -30,6 +30,15 @@ Template.admin.events({
     Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Warning! Life support failing. Please stay in your seat and follow the instructions in the escape pod protocol.', ts: new Date()});
     }, 13000);
+    Meteor.setTimeout(function() {
+      State.update(1, {$set: {state: 'STATIC'}});
+    }, 32000);
+    Meteor.setTimeout(function() {
+      State.update(1, {$set: {state: 'OFF'}});
+    }, 37000);
+    Meteor.setTimeout(function() {
+      State.update(1, {$set: {state: 'REBOOT'}});
+    }, 52000);
   },
   'click [data-role="crash"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'CRASH'}});
@@ -52,7 +61,7 @@ Template.admin.events({
     VoiceMsgs.insert({msg: msg, ts: new Date()});
   },
   'click [data-role="reset"]': function(e, tmpl) {
-    // TODO delete all VoiceMsgs
+    VoiceMsgs.find().fetch().forEach(function(m) {VoiceMsgs.remove(m._id)})
     State.update(1, {$set: {
       state: 'OFF',
       robotArm: false

@@ -4,4 +4,9 @@
       <source src="https://dl.dropboxusercontent.com/u/2242264/stars2.mp4" type="video/mp4" />
     </video>
   {{/if}}
+  {{#if stateIs "STATIC"}}
+    <video autoplay loop muted>
+      <source src="/static.mp4" type="video/mp4" />
+    </video>
+  {{/if}}
 </template>
