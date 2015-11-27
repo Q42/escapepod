@@ -22,6 +22,15 @@ Template.admin.events({
   'click [data-role="intro2"]': function(e, tmpl) {
     VoiceMsgs.insert({msg: 'So sign up today and be among the first to experience the stars.', ts: new Date()});
   },
+  'click [data-role="intro"]': function(e, tmpl) {
+    State.update(1, {$set: {state: 'INTRO'}});
+    Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Warning! Critical breach!', ts: new Date()});
+    }, 10000);
+    Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Warning! Life support failing. Please stay in your seat and follow the instructions in the escape pod protocol.', ts: new Date()});
+    }, 13000);
+  },
   'click [data-role="crash"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'CRASH'}});
   },
@@ -40,6 +49,7 @@ Template.admin.events({
     VoiceMsgs.insert({msg: msg, ts: new Date()});
   },
   'click [data-role="reset"]': function(e, tmpl) {
+    // TODO delete all VoiceMsgs
     State.update(1, {$set: {
       state: 'OFF',
       robotArm: false
