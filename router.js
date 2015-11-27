@@ -14,6 +14,9 @@ Router.route('/s3', function () {
 Router.route('/s4', function () {
   this.render('s4');
 });
+Router.route('/puzzel3', function () {
+  this.render('puzzel3Coordinates');
+});
 
 Router.route('/admin', function() {
   this.render('admin');
