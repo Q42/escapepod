@@ -2,6 +2,14 @@
   <div class="hidden">
     {{voice}}
   </div>
+  {{#if stateIs "INTRO"}}
+    <div>
+      TODO show full oxygen levels
+    </div>
+    <div>
+      TODO show log
+    </div>
+  {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>
       <source src="/static.mp4" type="video/mp4" />

@@ -41,7 +41,7 @@ Template.admin.events({
   },
   'click [data-role="reset"]': function(e, tmpl) {
     State.update(1, {$set: {
-      state: 'INTRO',
+      state: 'OFF',
       robotArm: false
     }});
   }

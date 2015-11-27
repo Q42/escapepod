@@ -1,5 +1,8 @@
 <template name="s4">
-  <video autoplay loop muted>
-    <source src="https://dl.dropboxusercontent.com/u/2242264/space.mp4" type="video/mp4" />
-  </video>
+  {{#if stateIs "INTRO"}}
+    <!-- TODO show video of stars flashing by -->
+    <video autoplay loop muted>
+      <source src="https://dl.dropboxusercontent.com/u/2242264/space.mp4" type="video/mp4" />
+    </video>
+  {{/if}}
 </template>
