@@ -8,7 +8,7 @@ Template.puzzel3Coordinates.events({
 
     } else {
       console.log('FOUT');
-      VoiceMsgs.insert({msg: 'You are wrong', ts: new Date()});
+      VoiceMsgs.insert({msg: 'This is not correct', ts: new Date()});
     }
   }
 });
