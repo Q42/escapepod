@@ -63,7 +63,7 @@ Template.admin.events({
     }, 65000));
     timeouts.push(Meteor.setTimeout(function() {
       Lamps.robotRedBlink();
-      VoiceMsgs.insert({msg: 'Oxygen breach detected. Current oxygen level: 69%. If you do not wish to suffer a horrible death by suffocation, please repair breach immediately.', ts: new Date()});
+      VoiceMsgs.insert({msg: 'Hull breach detected. Current oxygen level: 69%, and dropping rapidly. If you do not wish to suffer a horrible death by suffocation, please repair breach immediately.', ts: new Date()});
     }, 70000));
   },
   'click [data-role="reboot"]': function(e, tmpl) {
