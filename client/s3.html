@@ -1,10 +1,9 @@
 <template name="s3">
   {{#if stateIs "INTRO|EXPLOSION1|REBOOT|ROBOTDONE|COMM|COMMDONE|COORDINATES|COORDINATESDONE|OUTRO|CAKE"}}
-    <video autoplay loop muted>
     <!--<video autoplay loop muted>
       <source src="https://dl.dropboxusercontent.com/u/2242264/stars2.mp4" type="video/mp4" />
     </video> -->
-    <img src="/constellation.jpg" class="full"/>
+    <img src="/constellation.jpg" class="full" />
   {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>
