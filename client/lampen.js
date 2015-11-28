@@ -1,11 +1,11 @@
 Template.lampen.events({
   'click button.white': function (e, tmpl) {
     e.preventDefault();
-    makeAllLightsWhite();
+    allWhite();
   },
   'click button.red': function (e, tmpl) {
     e.preventDefault();
-    blinkAllRed();
+    allRedBlink();
   },
   'click button.off': function (e, tmpl) {
     e.preventDefault();
@@ -29,19 +29,19 @@ function allOff() {
 	_setLightGroup('{"on":false}');
 }
 
-function makeAllLightsWhite() {
-	var state = '{"on":true,"bri":255,"sat":110,"hue":47000}';
-	_setLightGroup(state);
+function allWhite() {
+	_setLightGroup('{"on":true,"bri":255,"sat":110,"hue":47000}');
 }
 
-function blinkAllRed() {
-  var redstate = '{"on":true,"bri":120,"sat":190,"hue":0}';
-  var redAlert = '{"alert": "lselect" }';
+function allWhiteLow() {
+	_setLightGroup('{"on":true,"bri":10,"sat":110,"hue":47000}');
+}
 
+function allRedBlink() {
 	// var lampStateA = '{"on":true,"bri":200,"sat":190,"hue":0}';
 	// var lampStateB = '{"on":false,"bri":10,"sat":190,"hue":0}';
-  _setLightGroup(redstate);
-  _setLightGroup(redAlert);
+  _setLightGroup('{"on":true,"bri":120,"sat":190,"hue":0}');
+  _setLightGroup('{"alert": "lselect" }');
 }
 
 
@@ -57,6 +57,7 @@ function _setLightLamp(lamp,state) {
 
 window.Lamps = {
   allOff: allOff,
-  makeAllLightsWhite: makeAllLightsWhite,
-  blinkAllRed: blinkAllRed
+  allWhite: allWhite,
+  allWhiteLow: allWhiteLow,
+  allRedBlink: allRedBlink
 };
