@@ -15,7 +15,10 @@
     <h1>TODO alarm</h1>
   {{/if}}
   {{#if stateIs "REBOOT"}}
-    <h1>TODO show oxygen dropping instruction</h1>
+    <div>
+      <h1>WARNING</h1>
+      <p>Oxygen levels are dropping, due to an external hull breach. To prevent suffocation please follow the procedure outlined in the robot arm manual.</p>
+    </div>
   {{/if}}
   {{#if stateIs "PUZZEL3"}}
     {{>puzzel3Coordinates}}
