@@ -1,6 +1,6 @@
 <template name="s2">
   {{#if stateIs "INTRO"}}
-    <div>
+    <div class="content">
       <form>
         <span class="prompt"><input type="text" autofocus /></span>
       </form>
@@ -15,7 +15,7 @@
     <h1>TODO alarm</h1>
   {{/if}}
   {{#if stateIs "REBOOT"}}
-    <div>
+    <div class="warning content">
       <h1>WARNING</h1>
       <p>Oxygen levels are dropping, due to an external hull breach. To prevent suffocation please follow the procedure outlined in the robot arm manual.</p>
     </div>
