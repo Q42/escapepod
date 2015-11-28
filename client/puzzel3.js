@@ -17,6 +17,10 @@ Template.puzzel3Coordinates.events({
       Meteor.setTimeout(function() {
         State.update(1, {$set: {state: 'OUTRO'}});
       }, 9000);
+
+      Meteor.setTimeout(function() {
+        State.update(1, {$set: {state: 'CAKE'}});
+      }, 28000);
     } else {
       VoiceMsgs.insert({msg: 'Invalid coordinates. Please retry.', ts: new Date()});
     }

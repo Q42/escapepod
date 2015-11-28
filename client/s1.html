@@ -12,6 +12,11 @@
       {{>logs}}
     </div>
   {{/if}}
+  {{#if stateIs "STATIC"}}
+    <video autoplay loop muted>
+      <source src="/static.mp4" type="video/mp4" />
+    </video>
+  {{/if}}
   {{#if stateIs "REBOOT"}}
     <!--
     <div>
@@ -22,7 +27,7 @@
       {{>logs}}
     </div>
   {{/if}}
-  {{#if stateIs "ROBOTDONE|COORDINATES|COORDINATESDONE"}}
+  {{#if stateIs "ROBOTDONE|COORDINATES|COORDINATESDONE|OUTRO|CAKE"}}
     <!--
     <div>
       TODO show stabilized oxygen levels
@@ -31,10 +36,5 @@
     <div class="content">
       {{>logs}}
     </div>
-  {{/if}}
-  {{#if stateIs "STATIC"}}
-    <video autoplay loop muted>
-      <source src="/static.mp4" type="video/mp4" />
-    </video>
   {{/if}}
 </template>
