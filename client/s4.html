@@ -7,6 +7,11 @@
       <source src="/crash.mp3" type="audio/mp3">
     </audio>
   {{/if}}
+  {{#if stateIs "CRASH"}}
+    <audio autoplay>
+      <source src="/explosion2.mp3" type="audio/mp3">
+    </audio>
+  {{/if}}
   {{#if stateIs "REBOOT|ROBOTDONE|COORDINATES|COORDINATESDONE"}}
     <audio autoplay>
       <source src="/enginesStarting.mp3" type="audio/mp3">

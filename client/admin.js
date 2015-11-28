@@ -44,7 +44,7 @@ Template.admin.events({
     }, 32000));
     timeouts.push(Meteor.setTimeout(function() {
       Lamps.allOff();
-      State.update(1, {$set: {state: 'OFF'}});
+      State.update(1, {$set: {state: 'CRASH'}});
     }, 37000));
     timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'REBOOT'}});
