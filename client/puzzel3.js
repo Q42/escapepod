@@ -2,7 +2,7 @@ Template.puzzel3Coordinates.events({
   'submit form': function (e, tmpl) {
     e.preventDefault();
     var text = e.target.querySelector('input').value;
-    if (text === '30\'-25\'5') {
+    if (text.match(/.*30.*-25.*5.*/)) {
       State.update(1, {$set: {state: 'COORDINATESDONE'}});
       VoiceMsgs.insert({msg: 'Current coordinates received. Sending distress signal.', ts: new Date()});
 
