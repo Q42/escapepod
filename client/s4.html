@@ -7,7 +7,12 @@
       <source src="/crash.mp3" type="audio/mp3">
     </audio>
   {{/if}}
-  {{#if stateIs "CRASH"}}
+  {{#if stateIs "EXPLOSION1"}}
+    <audio autoplay>
+      <source src="/explosion1.mp3" type="audio/mp3">
+    </audio>
+  {{/if}}
+  {{#if stateIs "EXPLOSION2"}}
     <audio autoplay>
       <source src="/explosion2.mp3" type="audio/mp3">
     </audio>
