@@ -1,3 +1,5 @@
+var timeouts = [];
+
 Template.registerHelper('stateIs', function (s) {
   var state = State.findOne();
   if (!state) return false;
@@ -24,31 +26,31 @@ Template.admin.events({
   },
   'click [data-role="intro"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'INTRO'}});
-    Meteor.setTimeout(function() {
+    timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Warning! Critical breach!', ts: new Date()});
-    }, 10000);
-    Meteor.setTimeout(function() {
+    }, 10000));
+    timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Warning! Life support failing. Please stay in your seat and follow the instructions in the escape pod protocol.', ts: new Date()});
-    }, 13000);
-    Meteor.setTimeout(function() {
+    }, 13000));
+    timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'STATIC'}});
-    }, 32000);
-    Meteor.setTimeout(function() {
+    }, 32000));
+    timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'OFF'}});
-    }, 37000);
-    Meteor.setTimeout(function() {
+    }, 37000));
+    timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'REBOOT'}});
       VoiceMsgs.insert({msg: 'Escape pod has been succesfully dispatched. Please wait for main system to reboot.', ts: new Date()});
-    }, 52000);
-    Meteor.setTimeout(function() {
+    }, 52000));
+    timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Checking all systems.', ts: new Date()});
-    }, 62000);
-    Meteor.setTimeout(function() {
+    }, 62000));
+    timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Checking all life support.', ts: new Date()});
-    }, 65000);
-    Meteor.setTimeout(function() {
+    }, 65000));
+    timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Oxygen breach detected. Current oxygen level: 69%. If you do not wish to suffer a horrible death by suffocation, please repair breach immediately.', ts: new Date()});
-    }, 70000);
+    }, 70000));
   },
   'click [data-role="reboot"]': function(e, tmpl) {
     State.update(1, {$set: {state: 'REBOOT'}});
@@ -65,7 +67,11 @@ Template.admin.events({
     VoiceMsgs.insert({msg: msg, ts: new Date()});
   },
   'click [data-role="reset"]': function(e, tmpl) {
-    VoiceMsgs.find().fetch().forEach(function(m) {VoiceMsgs.remove(m._id)})
+    VoiceMsgs.find().fetch().forEach(function(m) {VoiceMsgs.remove(m._id)});
+    timeouts.forEach(function(t) {
+      Meteor.clearTimeout(t);
+    });
+    timeouts = [];
     State.update(1, {$set: {
       state: 'OFF',
       robotArm: false
