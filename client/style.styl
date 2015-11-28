@@ -35,8 +35,16 @@ video {
     padding: 20px
     width: 50%;
   }
+}
 
-  input[type=text] {
+.prompt::before {
+  margin-left: 20px;
+  content: "$";
+  color: green;
+  font-size: 20px;
+}
+
+.prompt  input[type=text] {
     width: 80vw;
     background-color: black;
     border: none;
@@ -48,14 +56,6 @@ video {
     font-weight: bold;
     font-family: monospace;
   }
-
-  .prompt::before {
-    margin-left: 20px;
-    content: "$";
-    color: green;
-  }
-
-}
 
 .logs {
   list-style-type: square;
