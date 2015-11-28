@@ -33,6 +33,7 @@ Template.admin.events({
     Lamps.allWhiteLow();
     State.update(1, {$set: {state: 'INTRO'}});
     timeouts.push(Meteor.setTimeout(function() {
+      State.update(1, {$set: {state: 'EXPLOSION1'}});
       VoiceMsgs.insert({msg: 'Warning! Critical system failure!', ts: new Date()});
     }, 10000));
     timeouts.push(Meteor.setTimeout(function() {
@@ -47,7 +48,7 @@ Template.admin.events({
     }, 32000));
     timeouts.push(Meteor.setTimeout(function() {
       Lamps.allOff();
-      State.update(1, {$set: {state: 'OFF'}});
+      State.update(1, {$set: {state: 'EXPLOSION2'}});
     }, 37000));
     timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'REBOOT'}});

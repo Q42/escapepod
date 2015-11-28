@@ -1,29 +1,27 @@
 <template name="s1">
-
-    <div class="hidden">
-        {{voice}}
-    </div>
-    {{#if stateIs "INTRO"}}
-        <div class="content">
-            <!--
-            <div>
-              TODO show full oxygen levels
-            </div>
-            -->
-            <ul class="logs">
-              {{#each message in messages}}
-                <li>{{message.msg}}</li>
-              {{/each}}
-            </ul>
+  <div class="hidden">
+    {{voice}}
+  </div>
+  {{#if stateIs "INTRO|EXPLOSION1"}}
+    <div class="content">
+      <!--
+        <div>
+          TODO show full oxygen levels
         </div>
-    {{/if}}
+      -->
+
+      {{>logs}}
+    </div>
+  {{/if}}
   {{#if stateIs "REBOOT"}}
     <!--
     <div>
       TODO show dropping oxygen levels
     </div>
     -->
-    {{>logs}}
+    <div class="content">
+      {{>logs}}
+    </div>
   {{/if}}
   {{#if stateIs "ROBOTDONE|COORDINATES|COORDINATESDONE"}}
     <!--
@@ -31,7 +29,9 @@
       TODO show stabilized oxygen levels
     </div>
     -->
-    {{>logs}}
+    <div class="content">
+      {{>logs}}
+    </div>
   {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>
