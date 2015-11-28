@@ -29,4 +29,9 @@
   {{#if stateIs "COORDINATESDONE"}}
     <div class="content">Coordinates sent...</div>
   {{/if}}
+  {{#if stateIs "OUTRO"}}
+    <audio autoplay>
+      <source src="/outro.m4a">
+    </audio>
+  {{/if}}
 </template>

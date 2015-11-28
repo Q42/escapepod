@@ -13,6 +13,10 @@ Template.puzzel3Coordinates.events({
       Meteor.setTimeout(function() {
         VoiceMsgs.insert({msg: 'Distress signal has been received by Titan Inc.', ts: new Date()});
       }, 6000);
+
+      Meteor.setTimeout(function() {
+        State.update(1, {$set: {state: 'OUTRO'}});
+      }, 9000);
     } else {
       VoiceMsgs.insert({msg: 'Invalid coordinates. Please retry.', ts: new Date()});
     }
