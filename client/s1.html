@@ -6,17 +6,21 @@
     <div>
       TODO show full oxygen levels
     </div>
-    <div>
-      TODO show log
-    </div>
+    <ul class="logs">
+      {{#each message in messages}}
+        <li>{{message.msg}}</li>
+      {{/each}}
+    </ul>
   {{/if}}
   {{#if stateIs "REBOOT"}}
     <div>
       TODO show dropping oxygen levels
     </div>
-    <div>
-      TODO show log
-    </div>
+    <ul class="logs">
+      {{#each message in messages}}
+        <li>{{message.msg}}</li>
+      {{/each}}
+    </ul>
   {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>

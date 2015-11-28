@@ -5,6 +5,10 @@ Template.s1.helpers({
       voice(msg.msg);
       return msg.msg;
     }
+  },
+
+  messages: function() {
+      return VoiceMsgs.find({}, {sort: {ts:1}}).fetch();
   }
 });
 

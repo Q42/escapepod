@@ -1,7 +1,9 @@
 <template name="s2">
   {{#if stateIs "INTRO"}}
     <div>
-      TODO show empty terminal
+      <form>
+        <span class="prompt"><input type="text" autofocus /></span>
+      </form>
     </div>
   {{/if}}
   {{#if stateIs "STATIC"}}
