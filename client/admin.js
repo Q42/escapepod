@@ -25,6 +25,7 @@ Template.admin.events({
     VoiceMsgs.insert({msg: 'So sign up today and be among the first to experience the stars.', ts: new Date()});
   },
   'click [data-role="intro"]': function(e, tmpl) {
+    Lamps.allWhiteLow();
     State.update(1, {$set: {state: 'INTRO'}});
     timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Warning! Critical breach!', ts: new Date()});
@@ -76,5 +77,6 @@ Template.admin.events({
       state: 'OFF',
       robotArm: false
     }});
+    Lamps.allWhite();
   }
 });
