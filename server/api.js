@@ -16,6 +16,31 @@ Api.addRoute('robotarm', {authRequired: false}, {
       }, 3000);
 
       Meteor.setTimeout(function() {
+        VoiceMsgs.insert({msg: 'Trying to set up communications.', ts: new Date()});
+      }, 6000);
+
+      Meteor.setTimeout(function() {
+        VoiceMsgs.insert({msg: 'Error: cannot establish communication. Please repair the comsystem.', ts: new Date()});
+        State.update(1, {$set: {state: 'COMM'}});
+      }, 9000);
+    }
+    return {message: 42};
+  }
+});
+
+// Maps to: /api/commsystem
+Api.addRoute('commsystem', {authRequired: false}, {
+  get: function () {
+    console.log('commsystem done');
+    if (!State.findOne().commSystem) {
+      State.update(1, {$set: {commSystem: true, state: 'COMMDONE'}});
+      VoiceMsgs.insert({msg: 'Communication system online.', ts: new Date()});
+
+      Meteor.setTimeout(function() {
+        VoiceMsgs.insert({msg: 'Recommencing escape pod protocol.', ts: new Date()});
+      }, 3000);
+
+      Meteor.setTimeout(function() {
         VoiceMsgs.insert({msg: 'Communication relay found.', ts: new Date()});
       }, 6000);
 

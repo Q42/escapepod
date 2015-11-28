@@ -19,6 +19,10 @@ Template.admin.helpers({
   robotArm: function() {
     var state = State.findOne();
     if (state) return ''+state.robotArm;
+  },
+  commSystem: function() {
+    var state = State.findOne();
+    if (state) return ''+state.commSystem;
   }
 });
 
@@ -81,14 +85,15 @@ Template.admin.events({
     VoiceMsgs.insert({msg: msg, ts: new Date()});
   },
   'click [data-role="reset"]': function(e, tmpl) {
-    VoiceMsgs.find().fetch().forEach(function(m) {VoiceMsgs.remove(m._id)});
+    VoiceMsgs.find().fetch().forEach(function(m) {VoiceMsgs.remove(m._id);});
     timeouts.forEach(function(t) {
       Meteor.clearTimeout(t);
     });
     timeouts = [];
     State.update(1, {$set: {
       state: 'OFF',
-      robotArm: false
+      robotArm: false,
+      commSystem: false
     }});
     Lamps.allWhite();
   }

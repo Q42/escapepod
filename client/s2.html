@@ -20,6 +20,12 @@
   {{#if stateIs "ROBOTDONE"}}
     <div class="content">Oxygen levels stabilized.</div>
   {{/if}}
+  {{#if stateIs "COMM"}}
+    <div class="content">Find the comm system and fix it.</div>
+  {{/if}}
+  {{#if stateIs "COMMDONE"}}
+    <div class="content">Communication system operational.</div>
+  {{/if}}
   {{#if stateIs "COORDINATES"}}
     {{>puzzel3Coordinates}}
   {{/if}}
