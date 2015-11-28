@@ -33,12 +33,15 @@ Template.admin.events({
     Lamps.allWhiteLow();
     State.update(1, {$set: {state: 'INTRO'}});
     timeouts.push(Meteor.setTimeout(function() {
-      VoiceMsgs.insert({msg: 'Warning! Critical breach!', ts: new Date()});
+      VoiceMsgs.insert({msg: 'Warning! Critical system failure!', ts: new Date()});
     }, 10000));
     timeouts.push(Meteor.setTimeout(function() {
       Lamps.allRedBlink();
-      VoiceMsgs.insert({msg: 'Warning! Life support failing. Please stay in your seat and follow the instructions in the escape pod protocol.', ts: new Date()});
+      VoiceMsgs.insert({msg: 'Preparing emergency sequence. Escape pod powering up. Please stay in your seat and follow emergency protocol.', ts: new Date()});
     }, 13000));
+    timeouts.push(Meteor.setTimeout(function() {
+      VoiceMsgs.insert({msg: 'Escape pod has been succesfully dispatched.', ts: new Date()});
+    }, 24000));
     timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'STATIC'}});
     }, 32000));
@@ -48,7 +51,7 @@ Template.admin.events({
     }, 37000));
     timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'REBOOT'}});
-      VoiceMsgs.insert({msg: 'Escape pod has been succesfully dispatched. Please wait for main system to reboot.', ts: new Date()});
+      VoiceMsgs.insert({msg: 'Please wait for main system to reboot.', ts: new Date()});
     }, 52000));
     timeouts.push(Meteor.setTimeout(function() {
       Lamps.allWhiteLow();

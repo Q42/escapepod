@@ -1,19 +1,22 @@
 <template name="s1">
-  <div class="hidden">
-    {{voice}}
-  </div>
-  {{#if stateIs "INTRO"}}
-    <!--
-    <div>
-      TODO show full oxygen levels
+
+    <div class="hidden">
+        {{voice}}
     </div>
-    -->
-    <ul class="logs">
-      {{#each message in messages}}
-        <li>{{message.msg}}</li>
-      {{/each}}
-    </ul>
-  {{/if}}
+    {{#if stateIs "INTRO"}}
+        <div class="content">
+            <!--
+            <div>
+              TODO show full oxygen levels
+            </div>
+            -->
+            <ul class="logs">
+              {{#each message in messages}}
+                <li>{{message.msg}}</li>
+              {{/each}}
+            </ul>
+        </div>
+    {{/if}}
   {{#if stateIs "REBOOT"}}
     <!--
     <div>
