@@ -44,6 +44,10 @@ function allRedBlink() {
   _setLightGroup('{"alert": "lselect" }');
 }
 
+function robotRedBlink() {
+  _setLightLamp(1, '{"on":true,"bri":255,"sat":190,"hue":0}');
+  _setLightLamp(1, '{"alert": "lselect" }');
+}
 
 function _setLightGroup(state) {
 	var url = 'http://'+bridgeIpAddress+'/api/'+whitelist+'/groups/0/action';
@@ -59,5 +63,6 @@ window.Lamps = {
   allOff: allOff,
   allWhite: allWhite,
   allWhiteLow: allWhiteLow,
-  allRedBlink: allRedBlink
+  allRedBlink: allRedBlink,
+  robotRedBlink: robotRedBlink
 };

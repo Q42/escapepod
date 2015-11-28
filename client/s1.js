@@ -8,7 +8,7 @@ Template.s1.helpers({
   },
 
   messages: function() {
-      return VoiceMsgs.find({}, {sort: {ts:1}}).fetch();
+    return VoiceMsgs.find({}, {sort: {ts:1}}).fetch();
   }
 });
 

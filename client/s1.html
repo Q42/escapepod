@@ -3,9 +3,11 @@
     {{voice}}
   </div>
   {{#if stateIs "INTRO"}}
+    <!--
     <div>
       TODO show full oxygen levels
     </div>
+    -->
     <ul class="logs">
       {{#each message in messages}}
         <li>{{message.msg}}</li>
@@ -13,14 +15,20 @@
     </ul>
   {{/if}}
   {{#if stateIs "REBOOT"}}
+    <!--
     <div>
       TODO show dropping oxygen levels
     </div>
-    <ul class="logs">
-      {{#each message in messages}}
-        <li>{{message.msg}}</li>
-      {{/each}}
-    </ul>
+    -->
+    {{>logs}}
+  {{/if}}
+  {{#if stateIs "ROBOTDONE|COORDINATES|COORDINATESDONE"}}
+    <!--
+    <div>
+      TODO show stabilized oxygen levels
+    </div>
+    -->
+    {{>logs}}
   {{/if}}
   {{#if stateIs "STATIC"}}
     <video autoplay loop muted>

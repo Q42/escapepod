@@ -9,7 +9,12 @@ Template.registerHelper('stateIs', function (s) {
 Template.admin.helpers({
   state: function() {
     var state = State.findOne();
-    if (state) return state.state;
+    if (state) {
+      if (state.state == 'ROBOTDONE') { // I'm sorry I put this here, but it seems to work
+        Lamps.allWhiteLow();
+      }
+      return state.state;
+    }
   },
   robotArm: function() {
     var state = State.findOne();
@@ -24,19 +29,21 @@ Template.admin.events({
   'click [data-role="intro2"]': function(e, tmpl) {
     VoiceMsgs.insert({msg: 'So sign up today and be among the first to experience the stars.', ts: new Date()});
   },
-  'click [data-role="intro"]': function(e, tmpl) {
+  'click [data-role="start"]': function(e, tmpl) {
     Lamps.allWhiteLow();
     State.update(1, {$set: {state: 'INTRO'}});
     timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Warning! Critical breach!', ts: new Date()});
     }, 10000));
     timeouts.push(Meteor.setTimeout(function() {
+      Lamps.allRedBlink();
       VoiceMsgs.insert({msg: 'Warning! Life support failing. Please stay in your seat and follow the instructions in the escape pod protocol.', ts: new Date()});
     }, 13000));
     timeouts.push(Meteor.setTimeout(function() {
       State.update(1, {$set: {state: 'STATIC'}});
     }, 32000));
     timeouts.push(Meteor.setTimeout(function() {
+      Lamps.allOff();
       State.update(1, {$set: {state: 'OFF'}});
     }, 37000));
     timeouts.push(Meteor.setTimeout(function() {
@@ -44,12 +51,14 @@ Template.admin.events({
       VoiceMsgs.insert({msg: 'Escape pod has been succesfully dispatched. Please wait for main system to reboot.', ts: new Date()});
     }, 52000));
     timeouts.push(Meteor.setTimeout(function() {
+      Lamps.allWhiteLow();
       VoiceMsgs.insert({msg: 'Checking all systems.', ts: new Date()});
     }, 62000));
     timeouts.push(Meteor.setTimeout(function() {
       VoiceMsgs.insert({msg: 'Checking all life support.', ts: new Date()});
     }, 65000));
     timeouts.push(Meteor.setTimeout(function() {
+      Lamps.robotRedBlink();
       VoiceMsgs.insert({msg: 'Oxygen breach detected. Current oxygen level: 69%. If you do not wish to suffer a horrible death by suffocation, please repair breach immediately.', ts: new Date()});
     }, 70000));
   },

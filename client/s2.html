@@ -11,16 +11,19 @@
       <source src="/static.mp4" type="video/mp4" />
     </video>
   {{/if}}
-  {{#if stateIs "ALARM"}}
-    <h1>TODO alarm</h1>
-  {{/if}}
   {{#if stateIs "REBOOT"}}
     <div class="warning content">
       <h1>WARNING</h1>
       <p>Oxygen levels are dropping, due to an external hull breach. To prevent suffocation please follow the procedure outlined in the robot arm manual.</p>
     </div>
   {{/if}}
-  {{#if stateIs "PUZZEL3"}}
+  {{#if stateIs "ROBOTDONE"}}
+    <div class="content">Oxygen levels stabilized.</div>
+  {{/if}}
+  {{#if stateIs "COORDINATES"}}
     {{>puzzel3Coordinates}}
+  {{/if}}
+  {{#if stateIs "COORDINATESDONE"}}
+    <div class="content">Coordinates sent...</div>
   {{/if}}
 </template>

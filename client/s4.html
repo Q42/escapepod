@@ -1,6 +1,5 @@
 <template name="s4">
   {{#if stateIs "INTRO|STATIC"}}
-    <!-- TODO show video of stars flashing by -->
     <video autoplay loop muted>
       <source src="https://dl.dropboxusercontent.com/u/2242264/window-stars.mp4" type="video/mp4" />
     </video>
@@ -8,13 +7,10 @@
       <source src="/crash.mp3" type="audio/mp3">
     </audio>
   {{/if}}
-  {{#if stateIs "REBOOT"}}
+  {{#if stateIs "REBOOT|ROBOTDONE|COORDINATES|COORDINATESDONE"}}
     <audio autoplay>
       <source src="/enginesStarting.mp3" type="audio/mp3">
     </audio>
-  {{/if}}
-  {{#if stateIs "TODO"}}
-    TODO style this and put it in the right state
-    <img src="/blueplanet.jpg">
+    <img src="/blueplanet.jpg" style="width:100vw;height:100vh">
   {{/if}}
 </template>

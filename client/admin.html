@@ -1,27 +1,26 @@
 <template name="admin">
   <div class="admin">
     <h1>Admin</h1>
-    <h2>Intro</h2>
 
     <button data-role="intro1">Intro voice 1</button>
     <button data-role="intro2">Intro voice 2</button>
 
     <section>
-      Current state: {{state}}
-      <div>
-        Set state:
-        <button data-role="intro">Intro</button>
-        <button data-role="reboot">Reboot</button>
-        <button data-role="static">Static</button>
-        <button data-role="puzzel3">Puzzel 3</button>
-      </div>
-      Robot arm: {{robotArm}}
+      <button data-role="start">Start</button>
     </section>
 
-    <form>
-      <input type="text">
-      <input type="submit" value="Say this">
-    </form>
+    <section>
+      <div>Current state: {{state}}</div>
+      <div>Robot arm: {{robotArm}}</div>
+    </section>
+
+    <section>
+      <form>
+        <input type="text">
+        <input type="submit" value="Say this">
+      </form>
+    </section>
+
     <section>
       {{> lampen}}
     </section>
