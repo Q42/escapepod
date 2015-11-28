@@ -18,7 +18,10 @@
     </div>
   {{/if}}
   {{#if stateIs "ROBOTDONE"}}
-    <div class="content">Oxygen levels stabilized.</div>
+    <div class="content">
+      <p>Oxygen levels stabilized. Congratulations. Have some cake!</p>
+      <img src="/cake.jpg" width="500" />
+    </div>
   {{/if}}
   {{#if stateIs "COORDINATES"}}
     {{>puzzel3Coordinates}}
