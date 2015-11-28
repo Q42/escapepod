@@ -33,6 +33,24 @@ Template.admin.events({
   'click [data-role="intro2"]': function(e, tmpl) {
     VoiceMsgs.insert({msg: 'So sign up today and be among the first to experience the stars.', ts: new Date()});
   },
+  'click [data-role="notallowed"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'This is not allowed', ts: new Date()});
+  },
+  'click [data-role="worktogether"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'Please work together to fix the breach.', ts: new Date()});
+  },
+  'click [data-role="putrockinpipe"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'Put the rock into the pipe.', ts: new Date()});
+  },
+  'click [data-role="lookoutwindow"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'Maybe you should look out of the window.', ts: new Date()});
+  },
+  'click [data-role="lookaround"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'Look around you.', ts: new Date()});
+  },
+  'click [data-role="lookonscreen"]': function(e, tmpl) {
+    VoiceMsgs.insert({msg: 'Look on the screen for more information.', ts: new Date()});
+  },
   'click [data-role="start"]': function(e, tmpl) {
     Lamps.allWhiteLow();
     State.update(1, {$set: {state: 'INTRO'}});

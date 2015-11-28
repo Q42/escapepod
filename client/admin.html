@@ -4,6 +4,14 @@
 
     <button data-role="intro1">Intro voice 1</button>
     <button data-role="intro2">Intro voice 2</button>
+    <button data-role="notallowed">This is not allowed</button>
+    <button data-role="lookoutwindow">Look outside the window</button>
+    <button data-role="lookaround">Look around you</button>
+    <h2>Robot Puzzel</h2>
+    <button data-role="worktogether">Work Together</button>
+    <button data-role="putrockinpipe">Put rock into pipe</button>
+    <h2>Map puzzel</h2>
+    <button data-role="lookonscreen">Look on the screen</button>
 
     <section>
       <button data-role="start">Start</button>
@@ -11,8 +19,8 @@
 
     <section>
       <div>Current state: {{state}}</div>
-      <div>Robot arm: {{robotArm}}</div>
-      <div>Communication System: {{commSystem}}</div>
+      <div>Robot arm: {{robotArm}} <a href="/api/robotarm" target="_blank">Activate manually</a></div>
+      <div>Communication System: {{commSystem}} <a href="/api/commsystem" target="_blank">Activate manually</a></div>
     </section>
 
     <section>

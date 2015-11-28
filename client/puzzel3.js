@@ -2,7 +2,7 @@ Template.puzzel3Coordinates.events({
   'submit form': function (e, tmpl) {
     e.preventDefault();
     var text = e.target.querySelector('input').value;
-    if (text === '30\'-25\'5') {
+    if (text.match(/.*30.*-25.*5.*/)) {
       State.update(1, {$set: {state: 'COORDINATESDONE'}});
       VoiceMsgs.insert({msg: 'Current coordinates received. Sending distress signal.', ts: new Date()});
 
@@ -13,6 +13,14 @@ Template.puzzel3Coordinates.events({
       Meteor.setTimeout(function() {
         VoiceMsgs.insert({msg: 'Distress signal has been received by Titan Inc.', ts: new Date()});
       }, 6000);
+
+      Meteor.setTimeout(function() {
+        State.update(1, {$set: {state: 'OUTRO'}});
+      }, 9000);
+
+      Meteor.setTimeout(function() {
+        State.update(1, {$set: {state: 'CAKE'}});
+      }, 28000);
     } else {
       VoiceMsgs.insert({msg: 'Invalid coordinates. Please retry.', ts: new Date()});
     }
