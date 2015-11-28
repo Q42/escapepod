@@ -1,13 +1,15 @@
 Template.lampen.events({
   'click button.white': function (e, tmpl) {
     e.preventDefault();
-    console.log('light ib');
     makeAllLightsWhite();
   },
   'click button.red': function (e, tmpl) {
     e.preventDefault();
-    console.log('light opdjfigj');
     blinkAllRed();
+  },
+  'click button.off': function (e, tmpl) {
+    e.preventDefault();
+    allOff();
   }
 });
 
@@ -23,9 +25,12 @@ function putRequest(url,state) {
   });
 }
 
+function allOff() {
+	_setLightGroup('{"on":false}');
+}
 
 function makeAllLightsWhite() {
-	var state = '{"on":true,"bri":5,"sat":110,"hue":47000}';
+	var state = '{"on":true,"bri":255,"sat":110,"hue":47000}';
 	_setLightGroup(state);
 }
 
@@ -35,9 +40,8 @@ function blinkAllRed() {
 
 	// var lampStateA = '{"on":true,"bri":200,"sat":190,"hue":0}';
 	// var lampStateB = '{"on":false,"bri":10,"sat":190,"hue":0}';
- _setLightGroup(redstate);
- _setLightGroup(redAlert);
-
+  _setLightGroup(redstate);
+  _setLightGroup(redAlert);
 }
 
 
@@ -50,3 +54,9 @@ function _setLightLamp(lamp,state) {
 	var url = 'http://'+bridgeIpAddress+'/api/'+whitelist+'/lights/' + lamp + '/state';
 	putRequest(url,state);
 }
+
+window.Lamps = {
+  allOff: allOff,
+  makeAllLightsWhite: makeAllLightsWhite,
+  blinkAllRed: blinkAllRed
+};
